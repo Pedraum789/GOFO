@@ -24,4 +24,4 @@ jobs:
     - name: Build with Ant
       run: ant -noinput -buildfile "GOFO Implementation/build.xml"
     - name: Run Tests
-      run: ant -noinput -buildfile "GOFO Implementation/build.xml"; ant test
+      run: cd 'GOFO'; ls -la; ant -noinput -buildfile "GOFO Implementation/build.xml"; ant test
