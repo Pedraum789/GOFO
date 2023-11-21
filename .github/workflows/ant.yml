@@ -24,4 +24,4 @@ jobs:
     - name: Build with Ant
       run: ant -noinput -buildfile "GOFO Implementation/build.xml"
     - name: Run Tests
-      run: mvn test
+      run: ant test
