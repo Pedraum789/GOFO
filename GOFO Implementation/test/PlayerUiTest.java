@@ -31,4 +31,18 @@ public class PlayerUiTest {
 
         assertEquals(false, PlayerUI.isExistPlayer(players, "grupo123@gmail.com"));
     }
+
+    @Test
+    public void DepositTest() {
+
+        Player player = new Player();
+        player.setEmail("grupo@gmail.com");
+
+        ArrayList<Player> players = new ArrayList<>();
+        players.add(player);
+
+        PlayerUI.Option1(players, 0, 2);
+        assertEquals(2, players.get(0).getBalance());
+
+    }
 }
