@@ -114,6 +114,10 @@ public class Playground {
     public void setStatus() {
         String temp;
         temp = input.nextLine();
+        setStatus(temp);
+    }
+
+    public void setStatus(String temp) {
         if (temp.equalsIgnoreCase("available") || temp.equalsIgnoreCase("not available")) {
             statusPlayground = temp;
         } else {

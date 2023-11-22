@@ -66,9 +66,9 @@ public class PlayerUI {
             System.out.println("Enter the amount to deposit");
             temp = input.nextLine();
             balance = stringToInt(temp);
-            thePlayers.get(userIndex).getMoney(balance);
+            Option1(thePlayers, userIndex, balance);
         } else if (choice.equals("2")) {
-            System.out.println("Your balance is: " + thePlayers.get(userIndex).getBalance());
+            Option2(thePlayers, userIndex);
         } else if (choice.equals("3")) {
             Booking(input ,userIndex,thePlayers,currentUser,userBalance);
         } else if (choice.equals("4")) {
@@ -77,14 +77,8 @@ public class PlayerUI {
             while (true) {
                 temp = input.nextLine();
                 teamNum = stringToInt(temp);
-                if (teamNum >= 1 && teamNum <= 5) {
-                    for (int i = 0; i < teamNum; i++) {
-                        createTeam(thePlayers,currentUser);
-                    }
+                if(createMembers(teamNum, thePlayers, currentUser))
                     break;
-                } else {
-                    System.out.println("please enter number from 1 to 5");
-                }
             }
             playerMenu(input ,userIndex,thePlayers,currentUser,userBalance);
         } else if (choice.equals("5")) {
@@ -115,6 +109,27 @@ public class PlayerUI {
         }
         playerMenu(input ,userIndex,thePlayers,currentUser,userBalance);
     }
+
+    public static boolean createMembers(int teamNum, ArrayList<Player> thePlayers, String currentUser) {
+        if (teamNum >= 1 && teamNum <= 5) {
+            for (int i = 0; i < teamNum; i++) {
+                createTeam(thePlayers,currentUser);
+            }
+            return true;
+        } else {
+            System.out.println("please enter number from 1 to 5");
+            return false;
+        }
+    }
+
+    public static void Option1(ArrayList<Player> thePlayers, int userIndex, int balance) {
+        thePlayers.get(userIndex).getMoney(balance);
+    }
+
+    public static void Option2(ArrayList<Player> thePlayers, int userIndex) {
+        System.out.println("Your balance is: " + thePlayers.get(userIndex).getBalance());
+    }
+
     //Booking a slot for the player
 
     public static void Booking(Scanner input ,int userIndex, ArrayList<Player> thePlayers,String currentUser,int userBalance) {

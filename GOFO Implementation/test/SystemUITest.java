@@ -16,6 +16,8 @@ public class SystemUITest {
     private final InputStream originalSystemIn = System.in;
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
+    private ByteArrayInputStream testInput;
+
     @Before
     public void setUpInput() {
         System.setIn(new ByteArrayInputStream("invalidInput\n".getBytes()));
@@ -27,7 +29,6 @@ public class SystemUITest {
         System.setIn(originalSystemIn);
         System.setOut(System.out);
     }
-
     @Test
     public void IsStringWithInvalidInputTest() {
         String result = SystemUI.isString("123");

@@ -176,7 +176,7 @@ public int getDayIndex(String day) {
  * @param time String time
  * @param day String day
  */
-public void bookSlot(String player, String time,String day)
+public void bookSlot(String player, String time, String day)
 {
 	for(int i=0; i<schedule.size(); i++)
 	{
